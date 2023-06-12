@@ -12,14 +12,14 @@ class Auditoria extends Model
   protected $table = 'registros_auditoria';
 
   protected $fillable = [
-    'usuario_id',
-    'data_login',
-    'data_logout',
+    'user_id',
+    'login_date',
+    'logout_date',
   ];
 
   protected $casts = [
-    'data_login' => 'datetime',
-    'data_logout' => 'datetime',
+    'login_date' => 'datetime',
+    'logout_date' => 'datetime',
   ];
 
   public function usuarios()
