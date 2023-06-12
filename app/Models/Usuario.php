@@ -12,17 +12,17 @@ class Usuario extends Model
   protected $table = 'usuarios';
 
   protected $fillable = [
-    'nome',
-    'usuario',
-    'senha',
+    'fullname',
+    'username',
+    'password',
   ];
 
   protected $hidden = [
-    'senha',
+    'password',
   ];
 
   protected $casts = [
-    'senha' => 'hashed',
+    'password' => 'hashed',
   ];
 
   public function contas()

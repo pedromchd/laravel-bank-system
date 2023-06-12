@@ -10,9 +10,9 @@ return new class extends Migration
   {
     Schema::create('usuarios', function (Blueprint $table) {
       $table->bigIncrements('id');
-      $table->string('nome');
-      $table->string('usuario')->unique();
-      $table->string('senha');
+      $table->string('fullname');
+      $table->string('username')->unique();
+      $table->string('password');
       $table->timestamps();
     });
   }
