@@ -25,6 +25,8 @@ class Usuario extends Authenticatable
     'password' => 'hashed',
   ];
 
+  public $timestamps = false;
+
   public function contas()
   {
     return $this->hasOne(Conta::class);
