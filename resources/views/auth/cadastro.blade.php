@@ -1,8 +1,6 @@
 @extends('layouts.app')
 
-@section('title')
-  Cadastro - Tribank
-@endsection
+@section('title', 'Cadastro')
 
 @section('main')
   <h2>Fazer cadastro</h2>

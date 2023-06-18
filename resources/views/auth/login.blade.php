@@ -1,8 +1,6 @@
 @extends('layouts.app')
 
-@section('title')
-  Login - Tribank
-@endsection
+@section('title', 'Login')
 
 @section('main')
   <h2>Fazer login</h2>

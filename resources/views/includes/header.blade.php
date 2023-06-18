@@ -1,3 +1,3 @@
 <header>
-  <h1>Tribank</h1>
+  <h1>Bah!Bank</h1>
 </header>
