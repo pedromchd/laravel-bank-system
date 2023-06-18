@@ -48,7 +48,7 @@ class AuthController extends Controller
       'fullname' => ['required'],
       'username' => ['required', 'unique:usuarios'],
       'password' => ['required', 'min:8', 'confirmed'],
-      'saldo' => ['decimal:2'],
+      'deposito' => ['decimal:2'],
     ]);
 
     Usuario::create([
@@ -56,6 +56,11 @@ class AuthController extends Controller
       'username' => $credenciais['username'],
       'password' => $credenciais['password'],
     ]);
+
+    // Conta::create([
+    //   'user_id' => Auth::id(),
+    //   'saldo' => $credenciais['deposito'],
+    // ]);
 
     return redirect('/login')->with('success', 'Cadastro realizado com sucesso.');
 

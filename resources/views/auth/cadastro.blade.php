@@ -22,6 +22,10 @@
       <label for="password_confirmation">Confirmar senha:</label>
       <input type="password" name="password_confirmation" id="password_confirmation">
     </div>
+    <div>
+      <label for="deposito">Depósito inicial:</label>
+      <input type="number" step="0.01" name="deposito" id="deposito">
+    </div>
     <a href="{{ url('/login') }}">Fazer login</a>
     <button type="submit">Cadastrar</button>
   </form>
