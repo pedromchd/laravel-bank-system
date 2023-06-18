@@ -8,7 +8,7 @@
     @csrf
     <div>
       <label for="fullname">Nome completo:</label>
-      <input type="text" name="fullname" id="fullname">
+      <input type="text" name="fullname" id="fullname" autofocus>
     </div>
     <div>
       <label for="username">Usuário:</label>
