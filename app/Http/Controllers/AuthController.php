@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Auditoria;
 use App\Models\Usuario;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -27,6 +28,12 @@ class AuthController extends Controller
 
     if (Auth::attempt($credenciais)) {
       $request->session()->regenerate();
+
+      Auditoria::create([
+        'user_id' => Auth::id(),
+        'login_at' => now('America/Sao_Paulo'),
+      ]);
+
       return redirect()->intended('/');
     }
 
@@ -62,6 +69,11 @@ class AuthController extends Controller
 
   public function logout(Request $request)
   {
+    $session = Auth::user()->registrosAuditoria->sortByDesc('login_at')->first();
+    $session->update([
+      'logout_at' => now('America/Sao_Paulo'),
+    ]);
+
     Auth::logout();
 
     $request->session()->invalidate();

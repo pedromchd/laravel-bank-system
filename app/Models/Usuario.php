@@ -34,6 +34,6 @@ class Usuario extends Authenticatable
 
   public function registrosAuditoria()
   {
-    return $this->hasMany(Auditoria::class);
+    return $this->hasMany(Auditoria::class, 'user_id');
   }
 }
