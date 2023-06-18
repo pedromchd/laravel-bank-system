@@ -13,14 +13,16 @@ class Auditoria extends Model
 
   protected $fillable = [
     'user_id',
-    'login_date',
-    'logout_date',
+    'login_at',
+    'logout_at',
   ];
 
   protected $casts = [
-    'login_date' => 'datetime',
-    'logout_date' => 'datetime',
+    'login_at' => 'datetime',
+    'logout_at' => 'datetime',
   ];
+
+  public $timestamps = false;
 
   public function usuarios()
   {

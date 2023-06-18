@@ -11,9 +11,8 @@ return new class extends Migration
     Schema::create('registros_auditoria', function (Blueprint $table) {
       $table->bigIncrements('id');
       $table->unsignedBigInteger('user_id');
-      $table->timestamp('login_date');
-      $table->timestamp('logout_date')->nullable();
-      $table->timestamps();
+      $table->timestamp('login_at');
+      $table->timestamp('logout_at')->nullable();
 
       $table->foreign('user_id')->references('id')->on('usuarios');
     });
