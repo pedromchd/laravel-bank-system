@@ -29,7 +29,7 @@ class Usuario extends Authenticatable
 
   public function contas()
   {
-    return $this->hasOne(Conta::class);
+    return $this->hasOne(Conta::class, 'user_id');
   }
 
   public function registrosAuditoria()
