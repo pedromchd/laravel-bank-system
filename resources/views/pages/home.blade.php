@@ -3,5 +3,7 @@
 @section('title', 'Home')
 
 @section('main')
-  <h2>Olá</h2>
+  <main class="flex-grow bg-orange-50">
+    
+  </main>
 @endsection
