@@ -26,6 +26,6 @@ class Auditoria extends Model
 
   public function usuarios()
   {
-    return $this->belongsTo(Usuario::class);
+    return $this->belongsTo(Usuario::class, 'user_id', 'id');
   }
 }
