@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Auditoria;
+use App\Models\Conta;
 use App\Models\Usuario;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -57,10 +58,10 @@ class AuthController extends Controller
       'password' => $credenciais['password'],
     ]);
 
-    // Conta::create([
-    //   'user_id' => Auth::id(),
-    //   'saldo' => $credenciais['deposito'],
-    // ]);
+    Conta::create([
+      'user_id' => Usuario::all()->last()->id,
+      'balance' => $credenciais['deposito'],
+    ]);
 
     return redirect('/login')->with('success', 'Cadastro realizado com sucesso.');
 
