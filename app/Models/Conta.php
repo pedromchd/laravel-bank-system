@@ -13,6 +13,7 @@ class Conta extends Model
 
   protected $fillable = [
     'user_id',
+    'account_number',
     'balance',
   ];
 
@@ -24,6 +25,16 @@ class Conta extends Model
 
   public function usuarios()
   {
-    return $this->belongsTo(Usuario::class);
+    return $this->belongsTo(Usuario::class, 'user_id', 'id');
+  }
+
+  public function chavesPix()
+  {
+    return $this->hasMany(Chave::class, 'account_id', 'account_number');
+  }
+
+  public function extratoTransacoes()
+  {
+    return $this->hasMany(Extrato::class, 'account_id', 'account_number');
   }
 }

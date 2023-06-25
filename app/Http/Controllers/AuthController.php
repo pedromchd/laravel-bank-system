@@ -60,6 +60,7 @@ class AuthController extends Controller
 
     Conta::create([
       'user_id' => Usuario::all()->last()->id,
+      'account_number' => mt_rand(10000000, 99999999),
       'balance' => $credenciais['deposito'],
     ]);
 
