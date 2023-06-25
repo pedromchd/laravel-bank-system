@@ -4,7 +4,7 @@
 
 @section('main')
   <main class="flex-grow bg-orange-50 grid grid-cols-2">
-    <img src="{{ asset('img/pexels-pixabay-50987.jpg') }}" alt="Pessoa segurando cartão de débito" class="h-full object-cover">
+    <img src="{{ asset('img/bah-intro.png') }}" alt="Bem-vindo ao Bah!Bank" class="place-self-center h-[30rem]">
     <div class="place-self-center w-96">
       <h2 class="mb-7 text-5xl font-light">Login</h2>
       <form action="{{ route('login') }}" method="post">
