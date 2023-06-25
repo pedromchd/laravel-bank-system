@@ -24,9 +24,7 @@ Route::middleware(['guest'])->group(function () {
 });
 
 Route::middleware(['auth'])->group(function () {
-  Route::controller(AuthController::class)->group(function () {
-    Route::post('/logout', 'logout')->name('logout');
-  });
+  Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
   Route::get('/', function () {
     return view('pages.home');
