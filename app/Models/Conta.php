@@ -30,7 +30,7 @@ class Conta extends Model
 
   public function chavesPix()
   {
-    return $this->hasMany(Chave::class, 'account_id', 'account_number');
+    return $this->hasMany(Pix::class, 'account_id', 'account_number');
   }
 
   public function extratoTransacoes()
