@@ -16,7 +16,7 @@ return new class extends Migration
       $table->string('destino');
       $table->datetime('data');
 
-      $table->foreign('account_id')->references('account_number')->on('contas');
+      $table->foreign('account_id')->references('id')->on('contas');
     });
   }
 

@@ -10,29 +10,21 @@
         @csrf
         <div class="space-y-3 mb-7">
           <div class="-space-y-1">
-            <label for="fullname" class="block text-sm">Nome completo:</label>
-            <input type="text" name="fullname" id="fullname" class="bg-transparent outline-none block py-1 w-full border-b-2 border-orange-500 text-lg" autofocus>
+            <label for="tipo" class="block text-sm">Tipo de transação:</label>
+            <input type="text" name="tipo" id="tipo" class="bg-transparent outline-none block py-1 w-full border-b-2 border-orange-500 text-lg">
           </div>
           <div class="-space-y-1">
-            <label for="username" class="block text-sm">Usuário:</label>
-            <input type="text" name="username" id="username" class="bg-transparent outline-none block py-1 w-full border-b-2 border-orange-500 text-lg">
+            <label for="destino" class="block text-sm">Destino:</label>
+            <input type="text" name="destino" id="destino" class="bg-transparent outline-none block py-1 w-full border-b-2 border-orange-500 text-lg" autofocus>
           </div>
           <div class="-space-y-1">
-            <label for="password" class="block text-sm">Senha:</label>
-            <input type="password" name="password" id="password" class="bg-transparent outline-none block py-1 w-full border-b-2 border-orange-500 text-lg">
-          </div>
-          <div class="-space-y-1">
-            <label for="password_confirmation" class="block text-sm">Confirmar senha:</label>
-            <input type="password" name="password_confirmation" id="password_confirmation" class="bg-transparent outline-none block py-1 w-full border-b-2 border-orange-500 text-lg">
-          </div>
-          <div class="-space-y-1">
-            <label for="deposito" class="block text-sm">Depósito inicial:</label>
-            <input type="number" step="0.01" name="deposito" id="deposito" class="bg-transparent outline-none block py-1 w-full border-b-2 border-orange-500 text-lg">
+            <label for="valor" class="block text-sm">Valor:</label>
+            <input type="number" step="0.01" name="valor" id="valor" class="bg-transparent outline-none block py-1 w-full border-b-2 border-orange-500 text-lg">
           </div>
         </div>
         <div class="grid grid-cols-2">
-          <a href="{{ url('/login') }}" class="block place-self-center text-orange-500 underline">Fazer login</a>
-          <button type="submit" class="block h-12 bg-orange-500 text-white font-bold rounded-sm shadow-sm">Cadastrar</button>
+          <a href="{{ url('/') }}" class="block place-self-center text-orange-500 underline">Voltar</a>
+          <button type="submit" class="block h-12 bg-orange-500 text-white font-bold rounded-sm shadow-sm">Pagar</button>
         </div>
       </form>
     </div>

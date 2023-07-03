@@ -9,6 +9,7 @@ return new class extends Migration
   public function up()
   {
     Schema::create('contas', function (Blueprint $table) {
+      $table->bigIncrements('id');
       $table->unsignedBigInteger('user_id')->unique();
       $table->bigInteger('account_number')->unique();
       $table->decimal('limit', 10, 2)->default(1000.00);

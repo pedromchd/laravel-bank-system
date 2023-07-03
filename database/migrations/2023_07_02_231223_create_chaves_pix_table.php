@@ -14,7 +14,7 @@ return new class extends Migration
       $table->string('tipo');
       $table->string('chave');
 
-      $table->foreign('account_id')->references('account_number')->on('contas');
+      $table->foreign('account_id')->references('id')->on('contas');
     });
   }
 
