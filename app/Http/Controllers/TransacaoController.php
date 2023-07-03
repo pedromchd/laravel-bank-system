@@ -9,7 +9,11 @@ class TransacaoController extends Controller
 {
   public function geraPaginaHome()
   {
-    $conta = Auth::user()->contas;
-    return view('pages.home', compact('conta'));
+    return view('pages.home');
+  }
+
+  public function geraPaginaPagamentos()
+  {
+    return view('pages.pagamentos');
   }
 }

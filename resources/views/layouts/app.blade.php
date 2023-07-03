@@ -10,6 +10,10 @@
 </head>
 
 <body class="min-h-screen flex flex-col">
+  @if (Auth::check()) @php
+    $conta = Auth::user()->contas;
+  @endphp @endif
+
   @include('includes.header')
 
   @yield('main')

@@ -29,5 +29,8 @@ Route::middleware(['auth'])->group(function () {
 
   Route::controller(TransacaoController::class)->group(function () {
     Route::get('/', 'geraPaginaHome');
+    Route::get('/extrato', 'geraPaginaHome');
+    Route::get('/pagamentos', 'geraPaginaPagamentos');
+    Route::post('/pagar', 'pagar')->name('pagar');
   });
 });

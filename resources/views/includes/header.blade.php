@@ -1,9 +1,9 @@
 <header>
   <div class="pr-7 py-3 bg-orange-500 flex items-center justify-between">
-    <div class="flex items-center">
+    <a href="{{ url('/') }}" class="flex items-center">
       <img src="{{ asset('img/bah-logo.png') }}" alt="Bah!Bank Logo" class="h-20">
       <span class="-ml-5 text-white text-5xl font-bold drop-shadow-md"><span class="text-[#a84500]">ah!</span>Bank</span>
-    </div>
+    </a>
     @if (Auth::check())
     <div class="text-lg text-white font-bold">
       <p>Usuário: {{ $conta->usuarios->username }}</p>
