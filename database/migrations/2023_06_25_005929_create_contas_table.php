@@ -12,8 +12,9 @@ return new class extends Migration
       $table->bigIncrements('id');
       $table->unsignedBigInteger('user_id')->unique();
       $table->bigInteger('account_number')->unique();
-      $table->decimal('limit', 10, 2)->default(1000.00);
       $table->decimal('balance', 10, 2);
+      $table->decimal('limit', 10, 2)->default(1000.00);
+      $table->decimal('fatura', 10, 2)->default(0.00);
 
       $table->foreign('user_id')->references('id')->on('usuarios');
     });

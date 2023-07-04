@@ -13,6 +13,7 @@ class Extrato extends Model
     'account_id',
     'tipo',
     'valor',
+    'descricao',
     'destino',
     'data',
   ];

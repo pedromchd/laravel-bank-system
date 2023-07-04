@@ -14,11 +14,15 @@ class Conta extends Model
   protected $fillable = [
     'user_id',
     'account_number',
+    'limit',
     'balance',
+    'fatura',
   ];
 
   protected $casts = [
-    'balance' => 'decimal:2'
+    'balance' => 'decimal:2',
+    'limit' => 'decimal:2',
+    'fatura' => 'decimal:2',
   ];
 
   public $timestamps = false;

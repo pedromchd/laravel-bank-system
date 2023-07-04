@@ -13,10 +13,7 @@
             <label for="tipo" class="block text-sm">Tipo de transação:</label>
             <select name="tipo" id="tipo" class="bg-transparent outline-none block py-1 w-full border-b-2 border-orange-500 text-lg">
               <option value="Boleto">Boleto</option>
-              <option value="Depósito">Depósito</option>
               <option value="Débito">Débito</option>
-              <option value="Crédito">Crédito</option>
-              <option value="Fatura">Fatura</option>
             </select>
           </div>
           <div class="-space-y-1" id="boleto">
@@ -27,31 +24,25 @@
             <label for="descricao" class="block text-sm">Descrição:</label>
             <input type="text" name="descricao" id="descricao" class="bg-transparent outline-none block py-1 w-full border-b-2 border-orange-500 text-lg" autofocus>
           </div>
-          <div class="-space-y-1">
-            <label for="valor" class="block text-sm">Valor:</label>
-            <input type="number" step="0.01" name="valor" id="valor" class="bg-transparent outline-none block py-1 w-full border-b-2 border-orange-500 text-lg">
-            <label for="limite" id="limite_box">
-              <input type="checkbox" name="limite" id="limite">
-              Usar limite disponível (taxa de 1% na fatura);
-            </label>
-          </div>
           <script>
             const tipo = document.forms[1].tipo;
             const form_boleto = document.querySelector('#boleto');
-            const check_limite = document.querySelector('#limite_box');
             tipo.addEventListener('change', (e) => {
               if (tipo.value !== 'Boleto') {
                 form_boleto.style.display = 'none';
               } else {
                 form_boleto.style.display = 'inherit';
               }
-              if (tipo.value === 'Crédito' || tipo.value === 'Depósito' || tipo.value === 'Fatura') {
-                check_limite.style.display = 'none';
-              } else {
-                check_limite.style.display = 'inherit';
-              }
             });
           </script>
+          <div class="-space-y-1">
+            <label for="valor" class="block text-sm">Valor:</label>
+            <input type="number" step="0.01" name="valor" id="valor" class="bg-transparent outline-none block py-1 w-full border-b-2 border-orange-500 text-lg">
+            <label for="limite">
+              <input type="checkbox" name="limite" id="limite">
+              Usar limite disponível (taxa de 1% na fatura);
+            </label>
+          </div>
         </div>
         <div class="grid grid-cols-2">
           <a href="{{ url('/') }}" class="block place-self-center text-orange-500 underline">Voltar</a>

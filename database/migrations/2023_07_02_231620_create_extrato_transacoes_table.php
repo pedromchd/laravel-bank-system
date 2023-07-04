@@ -13,10 +13,9 @@ return new class extends Migration
       $table->unsignedBigInteger('account_id');
       $table->string('tipo');
       $table->decimal('valor', 10, 2);
-      $table->string('destino');
+      $table->string('descricao')->nullable();
+      $table->string('destino')->nullable();
       $table->datetime('data');
-
-      $table->foreign('account_id')->references('id')->on('contas');
     });
   }
 

@@ -31,6 +31,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/', 'geraPaginaHome');
     Route::get('/extrato', 'geraPaginaHome');
     Route::get('/pagamentos', 'geraPaginaPagamentos');
+    Route::get('/chaves_pix', 'geraPaginaChavesPix');
+    Route::post('/chaves_pix', 'cadastraChavePix')->name('cadastraChavePix');
     Route::post('/pagar', 'pagar')->name('pagar');
   });
 });
