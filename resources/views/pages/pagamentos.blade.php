@@ -13,7 +13,6 @@
             <label for="tipo" class="block text-sm">Tipo de transação:</label>
             <select name="tipo" id="tipo" class="bg-transparent outline-none block py-1 w-full border-b-2 border-orange-500 text-lg">
               <option value="Boleto">Boleto</option>
-              <option value="Depósito">Depósito</option>
               <option value="Débito">Débito</option>
               <option value="Crédito">Crédito</option>
               <option value="Fatura">Fatura</option>
@@ -45,7 +44,7 @@
               } else {
                 form_boleto.style.display = 'inherit';
               }
-              if (tipo.value === 'Crédito' || tipo.value === 'Depósito' || tipo.value === 'Fatura') {
+              if (tipo.value === 'Crédito' || tipo.value === 'Fatura') {
                 check_limite.style.display = 'none';
               } else {
                 check_limite.style.display = 'inherit';

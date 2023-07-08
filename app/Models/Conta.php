@@ -17,6 +17,9 @@ class Conta extends Model
     'limit',
     'balance',
     'fatura',
+    'cpf',
+    'numero',
+    'email',
   ];
 
   protected $casts = [
@@ -30,11 +33,6 @@ class Conta extends Model
   public function usuarios()
   {
     return $this->belongsTo(Usuario::class, 'user_id', 'id');
-  }
-
-  public function chavesPix()
-  {
-    return $this->hasMany(Pix::class, 'account_id', 'account_number');
   }
 
   public function extratoTransacoes()

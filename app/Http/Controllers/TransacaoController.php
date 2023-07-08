@@ -29,6 +29,10 @@ class TransacaoController extends Controller
   {
   }
 
+  public function geraPaginaTransferencias() {
+    return view('pages.transferencias');
+  }
+
   public function pagar(Request $request)
   {
     $credenciais = $request->validate([
@@ -46,21 +50,29 @@ class TransacaoController extends Controller
       $saldo += $valor;
     }
     if ($tipo === 'Fatura') {
-      if ($valor <= $fatura) {
-        $limit += $valor;
-        $fatura -= $valor;
+      if ($valor <= $saldo) {
+        if ($valor <= $fatura) {
+          $saldo -= $valor;
+          $limit += $valor;
+          $fatura -= $valor;
+        } else {
+          return back()->withErrors([
+            'erro' => 'O valor informado é maior que o da fatura',
+          ]);
+        }
+      } else {
+        return back()->withErrors([
+          'erro' => 'Você não tem saldo para realizar esta operação',
+        ]);
       }
-      return back()->withErrors([
-        'erro' => 'O valor informado é maior que o da fatura',
-      ]);
     }
     if ($tipo === 'Boleto' || $tipo === 'Débito') {
       if ($valor <= $saldo) {
         $saldo -= $valor;
       } else
-      if ($request->limite === 'On') {
-        $saldo = 0;
+      if ($request->limite === 'on') {
         $valor -= $saldo;
+        $saldo = 0;
         if ($valor <= $limit) {
           $limit -= $valor * 1.01;
           $fatura += $valor * 1.01;

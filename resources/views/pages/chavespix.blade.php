@@ -4,7 +4,12 @@
 
 @section('main')
   <main class="flex-grow bg-orange-50 grid grid-cols-2 place-items-center">
-    <h2 class="mb-7 text-5xl font-light">Cadastrar chaves</h2>
+    <div class="w-96">
+      <div class="flex justify-between">
+        <h2 class="mb-3 text-5xl font-light">Minhas chaves</h2>
+        <a href="{{ url('/cadastrarchave') }}">Cadastrar chave pix</a>
+      </div>
+    </div>
     <div class="w-96">
       <form action="{{ route('cadastraChavePix') }}" method="post">
         @csrf

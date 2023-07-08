@@ -19,6 +19,12 @@
   @yield('main')
 
   @include('includes.footer')
+  <script>
+    const valor = document.querySelector('input#valor');
+    if (valor) {
+      valor.value = '0.00';
+    }
+  </script>
 </body>
 
 </html>
