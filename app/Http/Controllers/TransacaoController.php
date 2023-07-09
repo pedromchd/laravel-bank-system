@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Extrato;
 use App\Models\Usuario;
+use App\Models\Conta;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -38,8 +39,7 @@ class TransacaoController extends Controller
   }
 
   public function geraPaginaTransferencias() {
-    $users = Usuario::all();
-    return view('pages.transferencias', compact('users'));
+    return view('pages.transferencias');
   }
 
   public function pagar(Request $request)
@@ -75,7 +75,20 @@ class TransacaoController extends Controller
         ]);
       }
     }
-    if ($tipo === 'Boleto' || $tipo === 'Débito') {
+    if ($tipo === 'Boleto' || $tipo === 'Débito' || $tipo === 'Pix') {
+      if ($tipo === 'Pix') {
+        if ($destino = $request->destino) {
+          $contas = Conta::where('cpf', $destino)->orWhere('account_number', $destino)->orWhere('random', $destino)->orWhere('email', $destino)->orWhere('numero', $destino)->get();
+          foreach ($contas as $conta) {
+            $fullname = $conta->usuarios->fullname;
+            echo "<script>alert('Conta destino: " . $fullname . ". Valor: R$" . number_format($valor, 2, ',', '.') . "');</script>";
+          }
+        } else {
+          return back()->withErrors([
+            'error' => 'Chave não encontrada.',
+          ]);
+        }
+      }
       if ($valor <= $saldo) {
         $saldo -= $valor;
       } else
