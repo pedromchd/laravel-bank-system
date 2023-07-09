@@ -15,9 +15,9 @@ return new class extends Migration
       $table->decimal('balance', 10, 2);
       $table->decimal('limit', 10, 2)->default(1000.00);
       $table->decimal('fatura', 10, 2)->default(0.00);
-      $table->string('cpf')->nullable();
-      $table->string('numero')->nullable();
-      $table->string('email')->nullable();
+      $table->string('cpf')->nullable()->unique();
+      $table->string('numero')->nullable()->unique();
+      $table->string('email')->nullable()->unique();
       $table->string('random')->default(Str::random(16));
 
       $table->foreign('user_id')->references('id')->on('usuarios');

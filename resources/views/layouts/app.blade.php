@@ -25,6 +25,12 @@
       valor.value = '0.00';
     }
   </script>
+  @if ($errors->any())
+    <script>
+        var errorMessage = {!! json_encode($errors->all()) !!}.join('\n');
+        alert(errorMessage);
+    </script>
+  @endif
 </body>
 
 </html>

@@ -4,7 +4,7 @@
 
 @section('main')
   <main class="p-7 flex-grow bg-orange-50">
-    <p class="text-3xl font-thin mb-3">Extrato de transações</caption>
+    <p class="text-3xl font-thin mb-3">Extrato de transações</p>
     <table class="w-[100%]">
       <tr class="border border-orange-700 divide-x divide-orange-700">
         <th class="p-2">Tipo</th>

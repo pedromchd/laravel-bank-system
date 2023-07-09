@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Extrato;
+use App\Models\Usuario;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -27,10 +28,18 @@ class TransacaoController extends Controller
 
   public function cadastraChavePix(Request $resquest)
   {
+    Auth::user()->contas->update([
+      'cpf' => $resquest['cpf'],
+      'celular' => $resquest['celular'],
+      'email' => $resquest['email'],
+    ]);
+
+    return redirect('/transferencias');
   }
 
   public function geraPaginaTransferencias() {
-    return view('pages.transferencias');
+    $users = Usuario::all();
+    return view('pages.transferencias', compact('users'));
   }
 
   public function pagar(Request $request)

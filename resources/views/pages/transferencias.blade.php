@@ -6,14 +6,41 @@
   <main class="flex-grow bg-orange-50 grid grid-cols-2 place-items-center">
     <div class="ml-10 w-full">
       <div class="flex items-center justify-between">
-        <h2 class="mb-7 text-2xl font-light">Minhas chaves</h2>
-        <a href="{{ url('/cadastrarchave') }}">Cadastrar chave pix</a>
+        <p class="text-3xl font-thin mb-3">Suas chaves pix</p>
+        <a href="{{ url('/chaves_pix') }}" class="underline text-lg text-orange-500">Cadastrar ou editar Chaves</a>
       </div>
-      <div>
-        <table>
-          
-        </table>
-      </div>
+      <table class="w-[100%]">
+        <tr class="border border-orange-700 divide-x divide-orange-700">
+          <th class="p-2">Tipo</th>
+          <th class="p-2">Chave</th>
+        </tr>
+        <tr class="border border-orange-700 divide-x divide-orange-700">
+          <td class="p-2">Conta</td>
+          <td class="p-2">{{ Auth::user()->contas->account_number }}</td>
+        </tr>
+        <tr class="border border-orange-700 divide-x divide-orange-700">
+          <td class="p-2">Aleatória</td>
+          <td class="p-2">{{ Auth::user()->contas->random }}</td>
+        </tr>
+        @unless (empty(Auth::user()->contas->cpf))
+        <tr class="border border-orange-700 divide-x divide-orange-700">
+          <td class="p-2">CPF</td>
+          <td class="p-2">{{ Auth::user()->contas->cpf }}</td>
+        </tr>
+        @endunless
+        @unless (empty(Auth::user()->contas->email))
+        <tr class="border border-orange-700 divide-x divide-orange-700">
+          <td class="p-2">E-mail</td>
+          <td class="p-2">{{ Auth::user()->contas->email }}</td>
+        </tr>
+        @endunless
+        @unless (empty(Auth::user()->contas->numero))
+        <tr class="border border-orange-700 divide-x divide-orange-700">
+          <td class="p-2">Número</td>
+          <td class="p-2">{{ Auth::user()->contas->numero }}</td>
+        </tr>
+        @endunless
+      </table>
     </div>
     <div class="w-96">
       <form action="{{ route('pagar') }}" method="post">
