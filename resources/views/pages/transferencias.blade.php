@@ -18,10 +18,6 @@
           <td class="p-2">Conta</td>
           <td class="p-2">{{ Auth::user()->contas->account_number }}</td>
         </tr>
-        <tr class="border border-orange-700 divide-x divide-orange-700">
-          <td class="p-2">Aleatória</td>
-          <td class="p-2">{{ Auth::user()->contas->random }}</td>
-        </tr>
         @unless (empty(Auth::user()->contas->cpf))
         <tr class="border border-orange-700 divide-x divide-orange-700">
           <td class="p-2">CPF</td>

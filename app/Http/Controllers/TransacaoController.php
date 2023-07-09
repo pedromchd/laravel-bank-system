@@ -77,10 +77,11 @@ class TransacaoController extends Controller
     }
     if ($tipo === 'Boleto' || $tipo === 'Débito' || $tipo === 'Pix') {
       if ($tipo === 'Pix') {
+        $contas = 0;
         if ($destino = $request->destino) {
-          $contas = Conta::where('cpf', $destino)->orWhere('account_number', $destino)->orWhere('random', $destino)->orWhere('email', $destino)->orWhere('numero', $destino)->get();
-          foreach ($contas as $conta) {
-            $fullname = $conta->usuarios->fullname;
+          $contas = Conta::where('cpf', $destino)->orWhere('account_number', $destino)->orWhere('random', $destino)->orWhere('email', $destino)->orWhere('numero', $destino)->first()->id;
+          if ($contas) {
+            $fullname = Conta::find($contas)->usuarios->fullname;
             echo "<script>alert('Conta destino: " . $fullname . ". Valor: R$" . number_format($valor, 2, ',', '.') . "');</script>";
           }
         } else {
@@ -106,6 +107,11 @@ class TransacaoController extends Controller
       } else {
         return back()->withErrors([
           'erro' => 'Você não tem saldo para realizar esta operação',
+        ]);
+      }
+      if ($tipo === 'Pix') {
+        Conta::find($contas)->update([
+          'balance' =>  Conta::find($contas)->balance + $request->valor,
         ]);
       }
     }
