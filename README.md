@@ -1,66 +1,55 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Trabalho de Laravel - Sistema Bancário
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Descrição
 
-## About Laravel
+Desenvolver um sistema bancário utilizando o framework Laravel. O sistema terá as seguintes funcionalidades:
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- Cadastro de usuários com geração aleatória de número de conta, nome de usuário e nome.
+- Depósito inicial na conta durante o cadastro, incluindo nome do cliente e senha.
+- Autenticação de usuários através de login e senha.
+- Armazenamento das datas de login e logout de cada usuário em uma tabela de Auditoria.
+- Funcionalidades de EXTRATO, PAGAMENTOS e TRANSFERÊNCIAS.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Funcionalidades Detalhadas
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### EXTRATO
 
-## Learning Laravel
+- Detalhamento de compras via débito, transferências, boletos e crédito (salário, transferências, etc.).
+- Armazenamento da data de cada transação.
+- Descrição curta para cada transação (ex: resgate poup., pag. boleto, pag pix, etc.).
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### Limites e Taxas
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+- Cada cliente tem um limite de R$ 1000,00.
+- Se o cliente usar o limite, será aplicada uma taxa de 1% para cada transação no limite.
+- Aviso ao usuário ao usar o limite.
+- Se o valor utilizado for maior que o limite considerando as taxas, não haverá saldo disponível para transações de débito.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### PAGAMENTOS
 
-## Laravel Sponsors
+- Opções para pagamento via pix, boletos e débito (no sistema, não há diferença entre eles).
+- Dedução do valor pago do saldo do cliente.
+- Cadastro e validação de chave (CPF, celular ou e-mail) para pagamento via pix.
+- Mostrar o nome do usuário da chave destino.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+### TRANSFERÊNCIA
 
-### Premium Partners
+- Transferência de quantia para uma conta destino.
+- Dedução do valor transferido do saldo do cliente.
+- Adição do valor transferido ao saldo da conta destino.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+## Organização Sugerida
 
-## Contributing
+- Um aluno responsável pela interface (telas).
+- Um aluno responsável pelo desenvolvimento do Banco de Dados e ajustes no controller.
+- Um aluno responsável pelo desenvolvimento do controller, rotas e validação.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## Entrega
 
-## Code of Conduct
+A entrega do trabalho deve ser feita até o dia **5 de junho**.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### Observações
 
-## Security Vulnerabilities
+Lembre-se de analisar e tratar todas as possíveis inconsistências, como compras sem saldo, transferências inválidas, entre outras.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Esperamos que vocês realizem um bom trabalho! Abraços!
